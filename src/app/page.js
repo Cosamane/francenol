@@ -15,6 +15,10 @@ const lecciones = [
   { icon: "☀️", fr: "La météo", es: "El clima", slug: "clima", nivel: "principiante" },
   { icon: "🎨", fr: "Les couleurs", es: "Colores", slug: "colores", nivel: "principiante" },
   { icon: "🐾", fr: "Les animaux", es: "Animales", slug: "animales", nivel: "principiante" },
+  { icon: "🕐", fr: "L'heure", es: "La hora", slug: "hora", nivel: "principiante" },
+  { icon: "🪑", fr: "Objets du quotidien", es: "Objetos cotidianos", slug: "objetos", nivel: "principiante" },
+  { icon: "👩‍⚕️", fr: "Les métiers", es: "Profesiones", slug: "profesiones", nivel: "principiante" },
+  { icon: "⚽", fr: "Les sports", es: "Deportes", slug: "deportes", nivel: "principiante" },
   { icon: "👨‍👩‍👧", fr: "La famille", es: "Familia", slug: "familia", nivel: "intermedio" },
   { icon: "🍲", fr: "La nourriture", es: "Comida", slug: "comida", nivel: "intermedio" },
   { icon: "🏠", fr: "La maison", es: "Casa", slug: "casa", nivel: "intermedio" },
@@ -31,6 +35,9 @@ const lecciones = [
   { icon: "💭", fr: "Expressions idiomatiques", es: "Modismos mexicanos", slug: "modismos", nivel: "experto" },
   { icon: "🩺", fr: "Le rendez-vous médical", es: "Cita médica formal", slug: "cita-medica", nivel: "experto" },
   { icon: "📋", fr: "Les démarches administratives", es: "Trámites y burocracia", slug: "tramites", nivel: "experto" },
+  { icon: "😄", fr: "L'humour mexicain", es: "Bromas y humor mexicano", slug: "humor", nivel: "experto" },
+  { icon: "🎉", fr: "Les invitations", es: "Invitaciones sociales", slug: "invitaciones", nivel: "experto" },
+  { icon: "👋", fr: "Adieux et remerciements", es: "Despedidas y agradecimientos", slug: "despedidas", nivel: "experto" },
 ];
 
 export default function Home() {

@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-turquesa: #14b8a6;
+  --color-turquesa-dark: #0d9488;
+  --color-amarillo: #f0b429;
+  --color-cafe: #5c3a21;
+  --color-cafe-light: #8a6240;
+  --color-crema: #e4d4f7;
+  --color-negro: #1a1a1a;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes swap-es {
+  0%, 47% { opacity: 1; transform: translateY(0); }
+  50%, 97% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes swap-fr {
+  0%, 47% { opacity: 0; transform: translateY(10px); }
+  50%, 97% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(10px); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-swap-es {
+  animation: swap-es 5s ease-in-out infinite;
+}
+
+.animate-swap-fr {
+  animation: swap-fr 5s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out both;
+}
+
+.font-display {
+  font-family: var(--font-fredoka), sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float, .animate-swap-es, .animate-swap-fr, .animate-fade-up {
+    animation: none !important;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-crema);
+  color: var(--color-negro);
+}
+
+.mancha {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(40px);
+  z-index: 0;
+  pointer-events: none;
 }

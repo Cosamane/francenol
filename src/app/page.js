@@ -28,6 +28,9 @@ const lecciones = [
   { icon: "🗣️", fr: "Expressions courantes", es: "Dichos y frases coloquiales", slug: "dichos", nivel: "experto" },
   { icon: "🍽️", fr: "Au restaurant", es: "En el restaurante", slug: "restaurante", nivel: "experto" },
   { icon: "💻", fr: "La vie au travail", es: "Vida laboral", slug: "vida-laboral", nivel: "experto" },
+  { icon: "💭", fr: "Expressions idiomatiques", es: "Modismos mexicanos", slug: "modismos", nivel: "experto" },
+  { icon: "🩺", fr: "Le rendez-vous médical", es: "Cita médica formal", slug: "cita-medica", nivel: "experto" },
+  { icon: "📋", fr: "Les démarches administratives", es: "Trámites y burocracia", slug: "tramites", nivel: "experto" },
 ];
 
 export default function Home() {

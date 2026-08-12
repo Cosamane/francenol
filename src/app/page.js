@@ -25,6 +25,9 @@ const lecciones = [
   { icon: "🚌", fr: "Les transports", es: "Transporte", slug: "transporte", nivel: "avanzado" },
   { icon: "💼", fr: "Le travail", es: "Trabajo", slug: "trabajo", nivel: "avanzado" },
   { icon: "💬", fr: "Conversations de base", es: "Conversaciones básicas", slug: "conversaciones", nivel: "experto" },
+  { icon: "🗣️", fr: "Expressions courantes", es: "Dichos y frases coloquiales", slug: "dichos", nivel: "experto" },
+  { icon: "🍽️", fr: "Au restaurant", es: "En el restaurante", slug: "restaurante", nivel: "experto" },
+  { icon: "💻", fr: "La vie au travail", es: "Vida laboral", slug: "vida-laboral", nivel: "experto" },
 ];
 
 export default function Home() {

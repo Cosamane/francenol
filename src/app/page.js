@@ -76,7 +76,15 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-crema">
+    <main className="min-h-screen relative">
+      {/* Color morado de fondo (base) */}
+      <div className="fixed inset-0 bg-crema -z-20" />
+
+      {/* Imagen de las banderas, muy sutil, encima del color */}
+      <div
+        className="fixed inset-0 opacity-[0.08] bg-cover bg-center pointer-events-none -z-10"
+        style={{ backgroundImage: "url('/fondo-banderas.png')" }}
+      />
       <header
         className="px-6 pb-5 flex items-center justify-center"
         style={{ paddingTop: "calc(1.25rem + env(safe-area-inset-top))" }}

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import BurbujaHolaBonjour from "@/components/BurbujaHolaBonjour";
+import { leerRacha } from "@/utils/racha";
 
 const niveles = [
   { id: "principiante", nombre: "Principiante", emoji: "🌱", bg: "bg-turquesa", texto: "text-white" },
@@ -56,6 +57,11 @@ const lecciones = [
 
 export default function Home() {
   const [completadas, setCompletadas] = useState({});
+  const [racha, setRacha] = useState({ dias: 0 });
+
+  useEffect(() => {
+    setRacha(leerRacha());
+  }, []);
 
   useEffect(() => {
     const nuevasCompletadas = {};
@@ -100,6 +106,12 @@ export default function Home() {
       <section className="relative overflow-hidden px-6 pt-6 pb-14 flex flex-col items-center text-center">
         <div className="mancha w-52 h-52 bg-turquesa/20 -top-10 -left-16" />
         <div className="mancha w-40 h-40 bg-amarillo/25 top-20 -right-10" />
+
+        {racha.dias > 0 && (
+          <div className="mb-4 inline-flex items-center gap-2 bg-amarillo text-cafe font-display font-bold text-sm px-4 py-2 rounded-full shadow-md">
+            🔥 {racha.dias} {racha.dias === 1 ? "día seguido" : "días seguidos"}
+          </div>
+        )}
 
         <BurbujaHolaBonjour />
 

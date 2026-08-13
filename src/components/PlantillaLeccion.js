@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import TarjetaPalabra from "@/components/TarjetaPalabra";
+import { actualizarRacha } from "@/utils/racha";
 
 export default function PlantillaLeccion({ emoji, tituloFr, tituloEs, palabras }) {
   const pathname = usePathname();
@@ -13,7 +14,6 @@ export default function PlantillaLeccion({ emoji, tituloFr, tituloEs, palabras }
     Array(palabras.length).fill(false)
   );
 
-  // Al abrir la lección, revisa si ya había progreso guardado antes
   useEffect(() => {
     try {
       const guardado = localStorage.getItem(claveGuardado);
@@ -37,6 +37,10 @@ export default function PlantillaLeccion({ emoji, tituloFr, tituloEs, palabras }
       } catch (e) {
         // si el navegador bloquea localStorage, no truena la app
       }
+      // Solo suma a la racha cuando SE MARCA como practicada (no al desmarcar)
+      if (copia[i]) {
+        actualizarRacha();
+      }
       return copia;
     });
   };
@@ -45,8 +49,6 @@ export default function PlantillaLeccion({ emoji, tituloFr, tituloEs, palabras }
   const porcentaje = Math.round((totalPracticadas / palabras.length) * 100);
   const leccionCompleta = totalPracticadas === palabras.length && palabras.length > 0;
 
-  // Mantiene "despierto" el motor de voz de Chrome (bug conocido:
-  // se duerme tras unos segundos de inactividad y corta el audio)
   useEffect(() => {
     const intervalo = setInterval(() => {
       if (typeof window !== "undefined" && window.speechSynthesis) {

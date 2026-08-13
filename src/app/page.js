@@ -124,6 +124,20 @@ export default function Home() {
           );
         })}
       </section>
+
+      <footer className="px-6 pb-12 pt-4 text-center max-w-md mx-auto">
+        <div className="border-t border-cafe/15 pt-8">
+          <p className="text-cafe-light text-sm leading-relaxed mb-1">
+            Cet espace est né de l&apos;envie de t&apos;accompagner à chaque nouveau mot.
+          </p>
+          <p className="text-cafe-light text-sm leading-relaxed mb-4">
+            Fait pour toi, avec toute la patience et tout l&apos;amour du monde.
+          </p>
+          <p className="font-display text-2xl font-semibold text-turquesa-dark">
+            Con todo mi amor, mami ❤️
+          </p>
+        </div>
+      </footer>
     </main>
   );
 }

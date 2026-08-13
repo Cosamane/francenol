@@ -134,7 +134,7 @@ export default function Home() {
             Fait pour toi, avec toute la patience et tout l&apos;amour du monde.
           </p>
           <p className="font-display text-2xl font-semibold text-turquesa-dark">
-            Con todo mi amor, mami ❤️
+            🇩🇿 Con todo mi amor, mami ❤️ 🇲🇽
           </p>
         </div>
       </footer>

@@ -16,12 +16,23 @@ const nunitoSans = Nunito_Sans({
 export const metadata = {
   title: "Franceñol — Apprendre l'espagnol simplement",
   description: "Aprende español paso a paso utilizando el francés como apoyo.",
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Franceñol",
+  },
+  icons: {
+    icon: "/icons/icon-192.png",
+    apple: "/icons/apple-touch-icon.png",
+  },
 };
 
 export const viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
+  themeColor: "#14b8a6",
 };
 
 export default function RootLayout({ children }) {

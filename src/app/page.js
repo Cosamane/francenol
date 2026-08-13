@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import BurbujaHolaBonjour from "@/components/BurbujaHolaBonjour";
 
@@ -52,6 +55,26 @@ const lecciones = [
 ];
 
 export default function Home() {
+  const [completadas, setCompletadas] = useState({});
+
+  useEffect(() => {
+    const nuevasCompletadas = {};
+    lecciones.forEach((leccion) => {
+      try {
+        const guardado = localStorage.getItem(`francenol-progreso/lecciones/${leccion.slug}`);
+        if (guardado) {
+          const arr = JSON.parse(guardado);
+          if (Array.isArray(arr) && arr.length > 0 && arr.every(Boolean)) {
+            nuevasCompletadas[leccion.slug] = true;
+          }
+        }
+      } catch (e) {
+        // si algo sale mal leyendo, simplemente no se marca como completada
+      }
+    });
+    setCompletadas(nuevasCompletadas);
+  }, []);
+
   return (
     <main className="min-h-screen bg-crema">
       <header
@@ -103,6 +126,7 @@ export default function Home() {
 
                 {leccionesDelNivel.map((leccion, i) => {
                   const offset = [0, 46, 0, -46][i % 4];
+                  const completada = completadas[leccion.slug];
                   return (
                     <Link
                       key={leccion.slug}
@@ -110,8 +134,13 @@ export default function Home() {
                       className="relative flex flex-col items-center gap-1.5 py-3 active:scale-90 transition-transform"
                       style={{ transform: `translateX(${offset}px)` }}
                     >
-                      <div className={`w-16 h-16 rounded-full ${nivel.bg} flex items-center justify-center text-3xl shadow-md`}>
+                      <div className={`relative w-16 h-16 rounded-full ${nivel.bg} flex items-center justify-center text-3xl shadow-md`}>
                         {leccion.icon}
+                        {completada && (
+                          <span className="absolute -top-1.5 -right-1.5 bg-white rounded-full w-6 h-6 flex items-center justify-center text-sm shadow-md">
+                            ⭐
+                          </span>
+                        )}
                       </div>
                       <span className="font-display text-xs font-semibold text-negro text-center max-w-[90px] leading-tight">
                         {leccion.fr}

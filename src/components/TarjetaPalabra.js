@@ -1,7 +1,5 @@
 "use client";
 
-import { useRef } from "react";
-
 export default function TarjetaPalabra({
   es,
   fonetica,
@@ -11,8 +9,6 @@ export default function TarjetaPalabra({
   practicada,
   onToggle,
 }) {
-  const utteranceRef = useRef(null);
-
   const hablar = (texto) => {
     if (typeof window === "undefined" || !window.speechSynthesis) return;
 
@@ -23,11 +19,7 @@ export default function TarjetaPalabra({
     const utterance = new SpeechSynthesisUtterance(texto);
     utterance.lang = "es-MX";
     utterance.rate = 0.85;
-    utteranceRef.current = utterance;
 
-    // Truco conocido para el bug de Chrome que se come el inicio
-    // de la frase: pausar justo antes y reanudar justo después de
-    // encolar el audio "resetea" el motor sin perder el comienzo.
     synth.pause();
     synth.speak(utterance);
     synth.resume();
@@ -35,9 +27,9 @@ export default function TarjetaPalabra({
 
   return (
     <div
-      className={`rounded-2xl p-5 border shadow-sm transition-all ${
+      className={`rounded-2xl p-5 border-2 shadow-sm transition-all ${
         practicada
-          ? "bg-turquesa/5 border-turquesa/40"
+          ? "bg-amarillo/15 border-amarillo"
           : "bg-white border-cafe/10"
       }`}
     >
@@ -45,7 +37,7 @@ export default function TarjetaPalabra({
         <h3 className="font-display text-2xl font-semibold text-negro">
           {es}
         </h3>
-        {practicada && <span className="text-turquesa text-xl">✓</span>}
+        {practicada && <span className="text-2xl">⭐</span>}
       </div>
 
       <button
@@ -77,9 +69,9 @@ export default function TarjetaPalabra({
 
       <button
         onClick={onToggle}
-        className={`w-full text-sm font-semibold rounded-xl py-2 border transition-all ${
+        className={`w-full text-sm font-bold rounded-xl py-2.5 border-2 transition-all ${
           practicada
-            ? "bg-turquesa/10 border-turquesa text-turquesa-dark"
+            ? "bg-amarillo border-amarillo text-cafe"
             : "bg-white border-cafe/20 text-cafe-light"
         }`}
       >

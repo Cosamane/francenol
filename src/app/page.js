@@ -122,9 +122,14 @@ export default function Home() {
           Aprende español paso a paso utilizando el francés como apoyo.
         </p>
 
-        <a href="#lecciones" className="bg-turquesa hover:bg-turquesa-dark active:scale-95 transition-all text-white font-display font-semibold text-lg px-8 py-4 rounded-2xl shadow-lg shadow-turquesa/30">
-          🚀 Commencer à apprendre
-        </a>
+        <div className="flex flex-col items-center gap-3">
+          <a href="#lecciones" className="bg-turquesa hover:bg-turquesa-dark active:scale-95 transition-all text-white font-display font-semibold text-lg px-8 py-4 rounded-2xl shadow-lg shadow-turquesa/30">
+            🚀 Commencer à apprendre
+          </a>
+          <Link href="/progreso" className="text-cafe font-display font-semibold text-sm underline underline-offset-4 active:scale-95 transition-all">
+            📊 Voir mes progrès
+          </Link>
+        </div>
       </section>
 
       <section id="lecciones" className="px-6 pb-16 max-w-md mx-auto">

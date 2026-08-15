@@ -14,17 +14,25 @@ const nunitoSans = Nunito_Sans({
 });
 
 export const metadata = {
-  title: "Franceñol — Apprendre l'espagnol simplement",
-  description: "Aprende español paso a paso utilizando el francés como apoyo.",
+  metadataBase: new URL("https://francenol-henna.vercel.app"),
+  title: "Franceñol",
+  description: "Apprends l'espagnol mexicain avec le soutien du français",
   manifest: "/manifest.json",
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "default",
-    title: "Franceñol",
-  },
   icons: {
     icon: "/icons/icon-192.png",
     apple: "/icons/apple-touch-icon.png",
+  },
+  openGraph: {
+    title: "Franceñol",
+    description: "Apprends l'espagnol mexicain avec le soutien du français",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Franceñol",
+      },
+    ],
   },
 };
 

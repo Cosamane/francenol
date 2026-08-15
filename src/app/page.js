@@ -129,6 +129,9 @@ export default function Home() {
           <Link href="/progreso" className="text-cafe font-display font-semibold text-sm underline underline-offset-4 active:scale-95 transition-all">
             📊 Voir mes progrès
           </Link>
+          <Link href="/repaso" className="text-cafe font-display font-semibold text-sm underline underline-offset-4 active:scale-95 transition-all">
+            🔀 Mode révision
+          </Link>
         </div>
       </section>
 
